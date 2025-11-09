@@ -3,7 +3,7 @@
 
 entries:
 
-  - title: Blog
+  - title: 사는얘기
     post_list:
       limit: 5
       category: example
@@ -11,14 +11,15 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
 
-  # - title: ready for new.. things..
-    # post_list:
-    #   limit: 5
-    #   show_more: true
-    #   show_more_text: See archive...
-    #   show_more_url: archive.html
+  - title: 음악얘2
+    post_list:
+      limit: 2
+      category: musiq
+      show_more: true
+      show_more_text: See archive...
+      show_more_url: archive.html
 
-  - title: Trees
+  - title: 나무들
     post_list:
       limit: 3
       category: example2
