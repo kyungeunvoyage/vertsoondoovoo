@@ -2,12 +2,6 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: Introduction
-    post_list:
-      limit: 1
-    # entries:
-    #   - title: vertsoondoovoo
-    #     url: https://vertsoondoovoo.kyungeun.xyz
 
   - title: Blog
     post_list:
@@ -16,12 +10,20 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
 
-  - title: posts by category
+  - title: ready for new.. things..
     post_list:
+      limit: 5
+      show_more: true
+      show_more_text: See archive...
+      show_more_url: archive.html
+
+  - title: Trees
+    post_list:
+      limit: 3
       category: example2
       show_more: true
       show_more_text: See archive...
-      show_more_url: example2-archive.html
+      show_more_url: archive.html
 
 
   # - title: another list
