@@ -9,5 +9,4 @@ title: vertsoondoovoo
 ![front image](/assets/img/peemangandme.png)
 
 {: data-content="footnotes"}
-
 [^1]: this is my DJing name..
