@@ -11,7 +11,7 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
 
-  - title: 음악얘2
+  - title: 음악얘기
     post_list:
       limit: 2
       category: musiq
