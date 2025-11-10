@@ -14,6 +14,22 @@
 
 body[a="dark"] { @include dark-appearance; }
 
+/* --- custom post title link style --- */
+a {
+  color: #1B7D00 !important;              // 기본 링크 색
+  text-decoration: none;    // 밑줄 제거 (선택)
+}
+
+a:hover {
+  color: #e63946;           // 마우스 올렸을 때 색 (예: 붉은색)
+  text-decoration: underline;
+}
+
+/* 포스트 리스트(홈·아카이브 등) 전용 */
+.post-list a {
+  color: #cff800;              // 포스트 제목 색
+  // font-weight: 600;
+}
 
 @media (prefers-color-scheme: dark) {
   body[a="auto"] { @include dark-appearance; }
@@ -109,21 +125,4 @@ img {
 
 .footnotes hr {
   margin-top: 2rem;
-}
-
-/* --- custom post title link style --- */
-a {
-  color: #1B7D00;              // 기본 링크 색
-  text-decoration: none;    // 밑줄 제거 (선택)
-}
-
-a:hover {
-  color: #e63946;           // 마우스 올렸을 때 색 (예: 붉은색)
-  text-decoration: underline;
-}
-
-/* 포스트 리스트(홈·아카이브 등) 전용 */
-.post-list a {
-  color: #cff800;              // 포스트 제목 색
-  // font-weight: 600;
 }
