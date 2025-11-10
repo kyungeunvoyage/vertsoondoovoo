@@ -36,39 +36,61 @@ layout: default
 </article>
 
 <script>
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.addedNodes.length === 0) return;
+  const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+              if (mutation.addedNodes.length === 0) return;
 
-            const iframe = mutation.addedNodes[0];
-            if (iframe.tagName !== 'IFRAME') return;
+              const iframe = mutation.addedNodes[0];
+              if (iframe.tagName !== 'IFRAME') return;
 
-            // ---------------------------------------------
-            // ⭐ 텍스트 색상 및 배경색만 변경하는 CSS ⭐
-            // ---------------------------------------------
-            const additionalStyles = `
-                /* 1. 닉네임, 이메일, 댓글 입력 필드의 배경색과 입력 텍스트 색상 변경 */
-                input[type="text"],
-                input[type="email"],
-                textarea {
-                    background-color: #242424 !important; /* 입력 필드 배경색 (어둡게) */
-                    color: #e0e0e0 !important; /* 입력 텍스트 색상 (밝게) */
-                    border-color: #555555 !important; /* 테두리 색상 */
-                }
+              const additionalStyles = `
+                  /* 1. 닉네임, 이메일, 댓글 입력 필드의 배경색과 입력 텍스트 색상 변경 (색상 수정된 버전 사용) */
+                  input[type="text"],
+                  input[type="email"],
+                  textarea {
+                      background-color: #242424 !important;
+                      color: #e0e0e0 !important;
+                      border-color: #555555 !important;
+                  }
 
-                /* 2. 'Nickname', 'Email (optional)', 'Reply...' 등의 레이블 배경 및 텍스트 색상 변경 */
-                .cusdis-form-item__label {
-                    color: #e0ee0e !important; /* 레이블 텍스트 색상 (밝은 노란색/녹색 계열) */
-                    background-color: #546a3a !important; /* 레이블 배경색 (어두운 녹색 계열) */
-                    padding: 4px 8px;
-                    border-radius: 4px;
-                }
-            `;
-            // ---------------------------------------------
+                  /* 2. 'Nickname', 'Email (optional)', 'Reply...' 등의 레이블 배경 및 텍스트 색상 변경 (강력한 선택자로 변경) */
+                  .cusdis-widget .cusdis-form-item__label {
+                      color: #e0ee0e !important;
+                      background-color: #546a3a !important;
+                      padding: 4px 8px;
+                      border-radius: 4px;
+                  }
 
-            iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
-        });
-    });
+                  /* 3. ⭐ 댓글 입력 칸(Reply/Textarea)의 너비를 줄이는 강화된 코드 ⭐ */
+                  /* A) 전체 폼 컨테이너의 최대 너비를 설정하여, 모든 필드가 이 크기에 맞춰집니다. */
+                  .cusdis-form-container {
+                      max-width: 450px !important; /* 전체 폼 컨테이너 너비 제한 (이 값 조정) */
+                  }
+
+                  /* B) 폼 전체를 감싸는 .cusdis-form도 제한하여 확실하게 너비를 줄입니다. */
+                  .cusdis-form {
+                      max-width: 450px !important; /* 이 값은 A와 동일하게 설정합니다. */
+                      width: 100% !important; /* 100%로 설정하여 최대 너비 내에서 유동적 */
+                  }
+
+                  /* C) 댓글 입력 상자(textarea)가 이 제한된 너비를 벗어나지 않도록 강제합니다. */
+                  textarea {
+                      width: 100% !important; /* 부모 컨테이너 너비에 맞춥니다. */
+                      box-sizing: border-box !important; /* 패딩/테두리가 너비를 초과하지 않도록 보정 */
+                  }
+
+                  /* 4. 이메일 입력 필드가 있는 폼 그룹 전체를 숨깁니다. */
+                  input[type="email"] {
+                      display: none !important;
+                  }
+                  .cusdis-form-item:has(input[type="email"]) {
+                      display: none !important;
+                  }
+              `;
+
+              iframe.srcdoc = iframe.srcdoc.replace('</style>', additionalStyles + '</style>');
+          });
+      });
 
     const cusdisThread = document.getElementById("cusdis_thread");
     if (cusdisThread) {
