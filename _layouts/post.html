@@ -14,7 +14,7 @@ layout: default
   {% if page.spotifyId %}
   <aside class="spotify">
     <div>
-      <div>I was listening to:</div>
+      <!-- <div></div> -->
       <br/>
       <iframe width="100%" height="380" frameborder="0" allowtransparency="true"
       src="https://open.spotify.com/embed/{{ page.spotifyType }}/{{ page.spotifyId }}?utm_source=generator"></iframe>
@@ -37,7 +37,7 @@ layout: default
 <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </article>
 
-<script>
+<!-- <script>
   const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
               if (mutation.addedNodes.length === 0) return;
@@ -101,4 +101,4 @@ layout: default
             subtree: true
         });
     }
-</script>
+</script> -->
