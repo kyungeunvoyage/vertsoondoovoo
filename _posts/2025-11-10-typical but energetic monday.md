@@ -4,6 +4,7 @@ title: typical but energetic monday
 category: example
 spotifyId: 1iXtpeHC0i6c7JBrKi3yaq
 spotifyType: track
+published: false
 ---
 ##### 01. 시간은 흐른다.
 오늘 상담을 다녀왔다.  
